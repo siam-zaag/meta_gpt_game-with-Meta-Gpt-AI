@@ -16,6 +16,14 @@
         "documentation": {}
     },
     {
+        "label": "Room",
+        "importPath": "rooms",
+        "description": "rooms",
+        "isExtraImport": true,
+        "detail": "rooms",
+        "documentation": {}
+    },
+    {
         "label": "ProductManager",
         "importPath": "product_manager",
         "description": "product_manager",
@@ -92,7 +100,7 @@
         "kind": 6,
         "importPath": "game.architect",
         "description": "game.architect",
-        "peekOfCode": "class Architect:\n    def add_room(self, game, room_name, room_description, items=None, exits=None):\n        new_room = Room(room_name, room_description, items)\n        game.rooms[room_name] = new_room\n        if exits:\n            new_room.exits = exits\n        print(f\"Room '{room_name}' added to the game.\")",
+        "peekOfCode": "class Architect:\n    def add_room(self, game, room_name, room_description, items=None, exits=None):\n        _room_name = room_name.title()\n        new_room = Room(_room_name, room_description, items)\n        game.rooms[_room_name] = new_room\n        if exits:\n            new_room.exits = exits\n        print(f\"Room '{_room_name}' added to the game.\")",
         "detail": "game.architect",
         "documentation": {}
     },
@@ -101,7 +109,7 @@
         "kind": 6,
         "importPath": "game.engineer",
         "description": "game.engineer",
-        "peekOfCode": "class Engineer:\n    def create_item(self, room, item):\n        room.items.append(item)\n        print(f\"Item '{item}' added to {room.name}.\")",
+        "peekOfCode": "class Engineer:\n    def create_item(self, room, item):\n        print('-----room',room)\n        room.items.append(item)\n        print(f\"Item '{item}' added to {room.name}.\")",
         "detail": "game.engineer",
         "documentation": {}
     },
@@ -110,7 +118,7 @@
         "kind": 6,
         "importPath": "game.game",
         "description": "game.game",
-        "peekOfCode": "class Game:\n    def __init__(self):\n        self.rooms = {\n            'Living Room': Room('Living Room', 'A cozy living room with a fireplace.', ['key', 'map']),\n            'Kitchen': Room('Kitchen', 'A kitchen with a strange smell.', ['knife', 'apple']),\n            'Bedroom': Room('Bedroom', 'A peaceful bedroom with a comfortable bed.', ['pillow', 'book'])\n        }\n        self.current_room = self.rooms['Living Room']\n        self.rooms['Living Room'].exits = {'north': self.rooms['Kitchen'], 'east': self.rooms['Bedroom']}\n        self.rooms['Kitchen'].exits = {'south': self.rooms['Living Room']}",
+        "peekOfCode": "class Game:\n    def __init__(self):\n        self.rooms = {\n            'Living Room': Room('Living Room', 'A cozy living room with a fireplace.', ['key', 'map']),\n            'Kitchen': Room('Kitchen', 'A kitchen with a strange smell.', ['knife', 'apple']),\n            'Bedroom': Room('Bedroom', 'A peaceful bedroom with a comfortable bed.', ['pillow', 'book']),\n            'Office': Room('Office room', 'A peaceful bedroom with a comfortable table.', ['Laptop', 'Mobile']),\n        }\n        self.current_room = self.rooms['Living Room']\n        self.rooms['Living Room'].exits = {'north': self.rooms['Kitchen'], 'east': self.rooms['Bedroom']}",
         "detail": "game.game",
         "documentation": {}
     },
@@ -128,7 +136,7 @@
         "kind": 6,
         "importPath": "game.qa_engineer",
         "description": "game.qa_engineer",
-        "peekOfCode": "class QAEngineer:\n    def verify_room(self, room):\n        print(f\"Verifying room '{room.name}'...\")\n        if room.exits:\n            print(\"Exits are present.\")\n        else:\n            print(\"No exits found.\")\n        if room.items:\n            print(\"Items are present.\")\n        else:",
+        "peekOfCode": "class QAEngineer:\n    def verify_room(self, room):\n        print(f\"Verifying room '{room.name}'...\")\n        if room.exits:\n            print(f\"Exits are present.'{room.name}' \")\n        else:\n            print(\"No exits found.\")\n        if room.items:\n            print(\"Items are present.\")\n        else:",
         "detail": "game.qa_engineer",
         "documentation": {}
     },
