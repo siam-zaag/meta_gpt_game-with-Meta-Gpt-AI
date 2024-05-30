@@ -56,46 +56,6 @@
         "documentation": {}
     },
     {
-        "label": "Room",
-        "importPath": "game.rooms",
-        "description": "game.rooms",
-        "isExtraImport": true,
-        "detail": "game.rooms",
-        "documentation": {}
-    },
-    {
-        "label": "ProductManager",
-        "importPath": "agents.product_manager",
-        "description": "agents.product_manager",
-        "isExtraImport": true,
-        "detail": "agents.product_manager",
-        "documentation": {}
-    },
-    {
-        "label": "Architect",
-        "importPath": "agents.architect",
-        "description": "agents.architect",
-        "isExtraImport": true,
-        "detail": "agents.architect",
-        "documentation": {}
-    },
-    {
-        "label": "Engineer",
-        "importPath": "agents.engineer",
-        "description": "agents.engineer",
-        "isExtraImport": true,
-        "detail": "agents.engineer",
-        "documentation": {}
-    },
-    {
-        "label": "QAEngineer",
-        "importPath": "agents.qa_engineer",
-        "description": "agents.qa_engineer",
-        "isExtraImport": true,
-        "detail": "agents.qa_engineer",
-        "documentation": {}
-    },
-    {
         "label": "Architect",
         "kind": 6,
         "importPath": "game.architect",
@@ -147,15 +107,6 @@
         "description": "game.rooms",
         "peekOfCode": "class Room:\n    def __init__(self, name, description, items=None):\n        self.name = name\n        self.description = description\n        self.items = items if items else []\n        self.exits = {}\n    def describe(self):\n        print(f\"{self.name}\\n{self.description}\")\n        if self.items:\n            print(\"You see the following items:\")",
         "detail": "game.rooms",
-        "documentation": {}
-    },
-    {
-        "label": "Game",
-        "kind": 6,
-        "importPath": "game",
-        "description": "game",
-        "peekOfCode": "class Game:\n    def __init__(self):\n        self.rooms = {\n            'Living Room': Room('Living Room', 'A cozy living room with a fireplace.', ['key', 'map']),\n            'Kitchen': Room('Kitchen', 'A kitchen with a strange smell.', ['knife', 'apple']),\n            'Bedroom': Room('Bedroom', 'A peaceful bedroom with a comfortable bed.', ['pillow', 'book'])\n        }\n        self.current_room = self.rooms['Living Room']\n        self.rooms['Living Room'].exits = {'north': self.rooms['Kitchen'], 'east': self.rooms['Bedroom']}\n        self.rooms['Kitchen'].exits = {'south': self.rooms['Living Room']}",
-        "detail": "game",
         "documentation": {}
     },
     {
